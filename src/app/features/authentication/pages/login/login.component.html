@@ -1,0 +1,105 @@
+<!--<div class="centered-content-layout relative">-->
+<!--    <div class="border-top"></div>-->
+<!--    <div class="container px-4 lg:ml-auto dimension">-->
+<!--        <img src="assets/images/login.svg" alt="login" class="hidden lg:block absolute-bg">-->
+<!--        <div class="2xl:flex 2xl:flex-col w-full lg:w-7/12 lg:mx-auto">-->
+<!--            <div class="flex flex-col py-6">-->
+<!--                <img class="mx-auto" src="assets/images/logo-full.svg" alt="logo">-->
+<!--                <h4 class="text-3xl text-center my-10 pb-3">Iniciar Sesión</h4>-->
+<!--                <div class="flex flex-row">-->
+<!--                    <mat-form-field appearance="outline" class="w-20 mr-5 text-sm">-->
+<!--                        <mat-label>DNI</mat-label>-->
+<!--                        <mat-select>-->
+<!--                            <mat-option value="one">First option</mat-option>-->
+<!--                            <mat-option value="two">Second option</mat-option>-->
+<!--                        </mat-select>-->
+<!--                    </mat-form-field>-->
+<!--                    <mat-form-field appearance="outline" class="w-64 text-sm">-->
+<!--                        <mat-label>Ingreso del número de documento</mat-label>-->
+<!--                        <input matInput placeholder="Placeholder">-->
+<!--                    </mat-form-field>-->
+<!--                </div>-->
+<!--                <p class="text-left text-sm flex items-center">-->
+<!--                    <mat-icon class="text-yellow-500 mr-3 my-2">info</mat-icon>Clave de internet de 6 digitos-->
+<!--                </p>-->
+<!--                <app-password-field></app-password-field>-->
+<!--                <mat-checkbox class="text-gray-100 text-sm" color="primary">Recordar datos</mat-checkbox>-->
+<!--                <a class="text-center text-primary text-sm leading-5 underline my-6" routerLink="/signup">Recupera tu-->
+<!--                    contraseña aquí</a>-->
+<!--                <button (click)="LoginHB()" class="btn h-12" mat-raised-button color="primary">INGRESAR</button>-->
+<!--                <button routerLink="/create-account" class="btn h-12" mat-raised-button>CREAR CLAVE</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a class="flex items-center text-sm my-8 ml-5">-->
+<!--            <mat-icon class="text-yellow-500 mr-3">help</mat-icon><span class="underline text-primary">Necesitas-->
+<!--                ayuda</span>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
+
+<section class="min-h-screen w-full flex items-stretch">
+<!--  <div class="border-top"></div>-->
+  <div class="lg:flex w-1/2 hidden bg-no-repeat bg-cover relative items-center" style="background-image: url(assets/images/Login.png);">
+    <div class="absolute inset-0 z-0"></div>
+  </div>
+  <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0">
+    <div class="absolute lg:hidden z-10 inset-0 bg-no-repeat bg-cover items-center">
+      <div class="absolute inset-0 z-0"></div>
+    </div>
+    <div class="sm:w-full md:w-full lg:w-full w-full z-20">
+      <div class="w-full border-top"></div>
+<!--      <img src="assets/img/Group%202490.svg">-->
+      <h1 class="my-0">
+        <img class="inline-flex logo" src="assets/images/logo-full.svg">
+      </h1>
+
+      <p class="text-3xl md:text-2xl text-black font-montserrat font-bold md:font-montserrat">
+        Iniciar Sesión
+      </p>
+      <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+        <div class="pb-2 pt-2">
+          <div class="flex flex-row">
+            <mat-form-field  appearance="outline" class="w-20 mr-5 text-sm">
+              <mat-label>Selecciona</mat-label>
+              <mat-select required>
+                <mat-option value="one">DNI</mat-option>
+                <mat-option value="two">CE</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-full text-sm">
+              <mat-label>Ingreso del número de documento</mat-label>
+              <input type="number" inputmode="numeric" maxlength="7" class="block w-full p-4 text-lg rounded-sm" matInput placeholder="N° de documento">
+            </mat-form-field>
+          </div>
+          <p class="text-left text-sm text-black flex items-center">
+            <mat-icon matTooltip="Info about the action" class="text-yellow-500 mr-3">info</mat-icon>Clave de internet de 6 digitos
+          </p>
+        </div>
+<!--        <p class="text-left text-sm text-black flex items-center">-->
+<!--          <mat-icon class="text-yellow-500 mr-3 my-2">info</mat-icon>Clave de internet de 6 digitos-->
+<!--        </p>-->
+        <div class=" text-left">
+          <app-password-field></app-password-field>
+          <mat-checkbox class="text-gray-100 text-sm" style="text-align: left" color="primary">Recordar datos</mat-checkbox>
+        </div>
+        <br>
+        <div class="text-center hover:underline">
+          <a class="text-primary hover:text-blue-600" routerLink="./admin/"><u>Recupera tu contraseña aqui</u></a>
+        </div>
+        <br>
+        <div class="px-9">
+          <div class="pb-2">
+            <button (click)="LoginHB()" class="shadow-lg py-2 uppercase block w-full pt-4 text-base text-white rounded-2xl bg-primary hover:bg-blue-900 focus:outline-none font-montserrat">Ingresar</button>
+          </div>
+          <div>
+            <button routerLink="/create-account" class="shadow-lg py-2 uppercase block w-full pt-4 text-base text-black rounded-2xl bg-white hover:bg-blue-100 hover:text-black font-montserrat focus:outline-none">Crear Clave</button>
+          </div>
+        </div>
+      </form>
+      <a class="flex items-center text-sm my-5 ml-5">
+        <mat-icon matTooltip="Info about the action" class="text-yellow-500 mr-3">help</mat-icon><span class="underline text-primary">Necesitas
+                ayuda</span>
+      </a>
+    </div>
+  </div>
+</section>

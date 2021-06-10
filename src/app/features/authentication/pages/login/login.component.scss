@@ -1,0 +1,16 @@
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #7B7B7B !important
+}
+
+.mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+  width: 25px;
+  height: 25px;
+}
+
+.logo{
+  width: 33%;
+}

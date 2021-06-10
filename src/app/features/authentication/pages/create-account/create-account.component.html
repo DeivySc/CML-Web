@@ -1,0 +1,354 @@
+<!--<div class="centered-content-layout relative">-->
+<!--  <div class="border-top"></div>-->
+<!--  <div class="container px-3 lg:px-4 lg:ml-auto dimension">-->
+<!--    <img src="assets/images/login.svg" alt="login" class="hidden lg:block absolute-bg">-->
+<!--    <div class="2xl:flex 2xl:flex-col w-full lg:w-7/12 lg:mx-auto">-->
+<!--      <div class="flex flex-col py-6 ">-->
+<!--        <div class="btn-home">-->
+<!--          <button mat-icon-button class="example-icon" routerLink="/login"-->
+<!--            aria-label="Example icon-button with menu icon">-->
+<!--            <mat-icon>arrow_back_ios</mat-icon>-->
+<!--          </button>-->
+<!--          <span class="ocultar">Inicio</span>-->
+<!--        </div>-->
+<!--        <img class="mx-auto" src="assets/images/logo-full.svg" alt="logo">-->
+<!--        <mat-horizontal-stepper labelPosition="bottom" #stepper *ngIf="hideSteppers">-->
+<!--          <mat-step [editable]="false" [completed]="completed" [stepControl]="firstFormGroup">-->
+<!--            <div class="flex flex-col py-6">-->
+<!--              <h4 class="text-3xl text-center my-10 pb-3">Ingresa tus datos</h4>-->
+<!--              <div class="max-w-md mx-auto">-->
+<!--                <form [formGroup]="firstFormGroup">-->
+<!--                  <ng-template matStepLabel>Identificación</ng-template>-->
+<!--                  <mat-form-field appearance="outline" class="w-full text-sm">-->
+<!--                    <input type="number" matInput placeholder="Ingresa el número de tarjeta" formControlName="firstCtrl"-->
+<!--                      required>-->
+<!--                  </mat-form-field>-->
+<!--                  <div class="flex flex-row">-->
+<!--                    <mat-form-field appearance="outline" class="w-20 mr-5 text-sm">-->
+<!--                      <mat-label>DNI</mat-label>-->
+<!--                      <mat-select>-->
+<!--                        <mat-option value="one">First option</mat-option>-->
+<!--                        <mat-option value="two">Second option</mat-option>-->
+<!--                      </mat-select>-->
+<!--                    </mat-form-field>-->
+<!--                    <mat-form-field appearance="outline" class="w-64 text-sm">-->
+<!--                      <mat-label>Ingreso del número de documentos</mat-label>-->
+<!--                      <input type="number" matInput placeholder="Placeholder" formControlName="firstCtrl" required>-->
+<!--                    </mat-form-field>-->
+<!--                  </div>-->
+<!--                  <p class="text-left text-sm flex items-center">-->
+<!--                    <mat-icon class="text-yellow-500 mr-3 my-2" matTooltip="Info about the action">info</mat-icon>Clave-->
+<!--                    de internet de 4-->
+<!--                    digitos-->
+<!--                  </p>-->
+<!--                  <app-password-field></app-password-field>-->
+<!--                  <div class="mt-10">-->
+<!--                    <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperNext-->
+<!--                      (click)="loadData();completeStep()">SIGUIENTE</button>-->
+<!--                  </div>-->
+<!--                </form>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </mat-step>-->
+<!--          <mat-step [editable]="false" [completed]="completed" [stepControl]="secondFormGroup"-->
+<!--            style="min-height: 870px;">-->
+<!--            <div class="flex flex-col py-6">-->
+<!--              <h4 class="text-3xl text-center my-10 pb-3">Ingresa tu código</h4>-->
+<!--              <div class="max-w-md mx-auto">-->
+<!--                <form [formGroup]="secondFormGroup">-->
+<!--                  <ng-template matStepLabel>Código</ng-template>-->
+<!--                  <div *ngIf="showSpinner" class="loader-container">-->
+<!--                    <mat-spinner></mat-spinner>-->
+<!--                  </div>-->
+<!--                  <p class="text-center text-sm flex items-center mx-auto">-->
+<!--                    <mat-icon class="text-yellow-500 mr-2 my-2" matTooltip="Info about the action">info</mat-icon>-->
+<!--                    Seleccionar el canal donde-->
+<!--                    recibirás tu código-->
+<!--                  </p>-->
+<!--                  <div class="mb-2 mt-4 h-16">-->
+<!--                    <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">-->
+<!--                      <mat-radio-button class="text-sm" value="1" color="primary">+51 ********058-->
+<!--                      </mat-radio-button>-->
+<!--                    </mat-card>-->
+<!--                    <button class="btn w-36 btn-code" mat-raised-button>ENVIAR SMS</button>-->
+<!--                  </div>-->
+<!--                  <div class="mb-8 h-16">-->
+<!--                    <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">-->
+<!--                      <mat-radio-button class="text-sm" value="2" color="primary">jos**********@gmail.com-->
+<!--                      </mat-radio-button>-->
+<!--                    </mat-card>-->
+<!--                    <button class="btn h-15 w-36 btn-code2" mat-raised-button>ENVIAR MAIL</button>-->
+<!--                  </div>-->
+<!--                  <mat-form-field appearance="outline" class="w-64 text-sm mx-auto">-->
+<!--                    <mat-label>Ingreso del número de documento</mat-label>-->
+<!--                    <input matInput placeholder="Placeholder">-->
+<!--                  </mat-form-field>-->
+<!--                  <br>-->
+<!--                  <a class="text-sm text-primary text-center">Solicitar nuevo código</a>-->
+
+<!--                  <div class="flex flex-row mt-5">-->
+<!--                    <div class="mr-5 w-full">-->
+<!--                      <button class="btn h-12 w-full" mat-raised-button color="primary"-->
+<!--                        matStepperPrevious>VOLVER</button>-->
+<!--                    </div>-->
+<!--                    <div class="w-full">-->
+<!--                      <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperNext-->
+<!--                        (click)="completeStep();loadData()">SIGUIENTE</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </form>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--          </mat-step>-->
+<!--          <mat-step [stepControl]="firstFormGroup">-->
+<!--            <div style="min-height: 550px; display: flex; flex-direction: column;">-->
+<!--              <ng-template matStepLabel>Clave <br> de internet</ng-template>-->
+<!--              <div *ngIf="showSpinner" class="loader-container">-->
+<!--                <mat-spinner></mat-spinner>-->
+<!--              </div>-->
+<!--              <h4 class="text-3xl text-center my-10 pb-3">Crear Clave de Internet</h4>-->
+<!--              <p class="text-center text-sm flex items-center mx-auto">-->
+<!--                <mat-icon class="text-yellow-500 mr-2 my-2" matTooltip="Info about the action">info</mat-icon>Nueva-->
+<!--                clave de internet de 6-->
+<!--                digitos-->
+<!--              </p>-->
+<!--              <mat-form-field appearance="outline" class="w-full text-sm">-->
+<!--                <mat-label>Ingresa el número de tarjeta</mat-label>-->
+<!--                <input matInput placeholder="Placeholder" type="number">-->
+<!--              </mat-form-field>-->
+<!--              <p class="text-sm text-center mb-4">Confirmar nueva clave de internet de 6 digitos</p>-->
+<!--              <app-password-field></app-password-field>-->
+<!--              <mat-checkbox class="mt-5 text-gray-100 text-sm" color="primary">Acepto términos y-->
+<!--                condiciones</mat-checkbox>-->
+<!--              <div class="flex flex-row mt-24">-->
+<!--                <div class="mr-5 w-full">-->
+<!--                  <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperPrevious>VOLVER</button>-->
+<!--                </div>-->
+<!--                <div class="w-full">-->
+<!--                  <button (click)="showSuccessfulRegistration()" class="btn h-12 w-full" mat-raised-button-->
+<!--                    color="primary" matStepperNext>CONFIRMAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </mat-step>-->
+<!--        </mat-horizontal-stepper>-->
+<!--        <ng-container *ngIf="!hideSteppers">-->
+<!--          <img class="my-5" src="assets/img/check-Vector.svg" alt="image">-->
+<!--          <h4 class="text-3xl text-center my-10 pb-3">Contraseña generada <br> con éxito</h4>-->
+<!--          <p class="text-center">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia-->
+<!--            consequat-->
+<!--            duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>-->
+<!--          <div class="mt-10">-->
+<!--            <button routerLink="/login" class="btn h-12 w-full" mat-raised-button color="primary">INGRESAR</button>-->
+<!--          </div>-->
+<!--        </ng-container>-->
+
+        <!-- <div class="w-full">
+            <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperNext
+              (click)="completeStep();loadData()">SIGUIENTE</button>
+          </div>
+      </div> -->
+        <!-- </form> -->
+        <!-- </div>
+  </div> -->
+        <!-- </mat-step> -->
+        <!-- <mat-step [stepControl]="firstFormGroup">
+    <div style="min-height: 550px; display: flex; flex-direction: column;">
+      <ng-template matStepLabel>Clave <br> de internet</ng-template>
+      <h4 class="text-3xl text-center my-10 pb-3">Crear Clave de Internet</h4>
+      <p class="text-center text-sm flex items-center mx-auto">
+        <mat-icon class="text-yellow-500 mr-2 my-2" matTooltip="Info about the action">info</mat-icon>Nueva
+        clave de internet de 6
+        digitos
+      </p>
+      <mat-form-field appearance="outline" class="w-full text-sm">
+        <mat-label>Ingresa el número de tarjeta</mat-label>
+        <input matInput placeholder="Placeholder" type="number">
+      </mat-form-field>
+      <p class="text-sm text-center mb-4">Confirmar nueva clave de internet de 6 digitos</p>
+      <app-password-field></app-password-field>
+      <mat-checkbox class="mt-5 text-gray-100 text-sm" color="primary">Acepto términos y
+        condiciones</mat-checkbox>
+      <div class="flex flex-row mt-24">
+        <div class="mr-5 w-full">
+          <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperPrevious>VOLVER</button>
+        </div>
+        <div class="w-full">
+          <button (click)="showSuccessfulRegistration()" class="btn h-12 w-full" mat-raised-button color="primary"
+            matStepperNext>CONFIRMAR</button>
+        </div>
+      </div>
+    </div>
+  </mat-step> -->
+        <!-- </mat-horizontal-stepper> -->
+        <!-- <ng-container *ngIf="!hideSteppers">
+    <img class="my-5" src="../../../../assets/images/hands-phone.svg" alt="image">
+    <h4 class="text-3xl text-center my-10 pb-3">Contraseña generada <br> con éxito</h4>
+    <p class="text-center">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+      Velit officia consequat
+      duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+    <div class="mt-10">
+      <button routerLink="/login" class="btn h-12 w-full" mat-raised-button color="primary">INGRESAR</button>
+    </div> -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<section class="min-h-screen flex items-stretch">
+  <div class="lg:flex w-1/2 hidden bg-no-repeat bg-cover relative items-center" style="background-image: url(assets/images/Login.png);">
+    <div class="absolute inset-0 z-0"></div>
+  </div>
+  <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0">
+    <div class="absolute lg:hidden z-10 inset-0 bg-no-repeat bg-cover items-center">
+      <div class="absolute inset-0 z-0"></div>
+    </div>
+    <div class="w-full py-2 z-20">
+      <div class="btn-home">
+        <button mat-icon-button class="example-icon" routerLink="/login" aria-label="Example icon-button with menu icon">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <span class="ocultar">Inicio</span>
+      </div>
+              <h1 class="">
+                <img class="sm:w-1/2 md:w-1/2 lg:w-1/2 inline-flex logo" src="assets/images/logo-full.svg">
+              </h1>
+              <mat-horizontal-stepper class="h-1/2" labelPosition="bottom" #stepper *ngIf="hideSteppers">
+                <mat-step [completed]="completed" [stepControl]="firstFormGroup">
+                  <div class="flex flex-col">
+                    <ng-template matStepLabel>Identificacion</ng-template>
+                    <h4 class="text-3xl text-center">Ingresa tus datos</h4>
+                    <div >
+                      <form [formGroup]="firstFormGroup" class="sm:w-2/3 w-full px-3 lg:px-0 mx-auto">
+                        <div class="pb-2 pt-2">
+                          <div class="flex flex-row">
+                            <mat-form-field appearance="outline" class="w-full">
+                              <mat-label>Ingresa el número de tarjeta</mat-label>
+                              <input type="number" maxlength="16" minlength="1" inputmode="numeric" matInput placeholder="Numero de tarjeta" formControlName="firstCtrl">
+                            </mat-form-field>
+                          </div>
+                          <div class="flex flex-row">
+                            <mat-form-field  appearance="outline" class="w-20 mr-5 text-sm">
+                              <mat-label>Selecciona</mat-label>
+                              <mat-select required>
+                                <mat-option value="one">DNI</mat-option>
+                                <mat-option value="two">CE</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="w-full text-sm">
+                              <mat-label>Ingreso del número de documento</mat-label>
+                              <input type="number" inputmode="numeric" maxlength="7" minlength="0" class="block w-full p-4 text-lg rounded-sm" matInput placeholder="N° de documento">
+                            </mat-form-field>
+                          </div>
+                          <p class="text-left text-sm text-black flex items-center">
+                            <mat-icon matTooltip="Info about the action" class="text-yellow-500 mr-3">info</mat-icon>Clave de internet de 6 digitos
+                          </p>
+                        </div>
+                        <div class="text-left">
+                          <app-password-field></app-password-field>
+                        </div>
+                        <div class="  w-full">
+                          <button matStepperNext class="shadow-lg py-3 uppercase block w-full  text-lg text-white rounded-full bg-primary hover:bg-blue-900 focus:outline-none font-montserrat" (click)="loadData();completeStep()">Siguiente</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </mat-step>
+                <mat-step [completed]="completed" [stepControl]="secondFormGroup"
+                          style="min-height: 870px;">
+                  <ng-template matStepLabel>Código</ng-template>
+                  <div class="flex flex-col py-6">
+                    <h4 class="text-3xl text-center my-4 pb-3">Ingresa tu código</h4>
+                    <form [formGroup]="thirdFormGroup" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                      <div class=" text-center">
+                        <p class="text-center text-sm flex items-center mx-auto">
+                          <mat-icon class="text-yellow-500 mr-2 my-2" matTooltip="Info about the action">info</mat-icon>
+                          Seleccionar el canal donde
+                          recibirás tu código
+                        </p>
+                        <div class="h-16 text-left">
+                          <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">
+                            <mat-radio-button class="text-sm" value="1" color="primary">+51 ********058
+                            </mat-radio-button>
+                            <button class="btn w-36 btn-code" mat-raised-button>ENVIAR SMS</button>
+                          </mat-card>
+                        </div>
+                        <div class=" h-16 text-left">
+                          <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">
+                            <mat-radio-button class="text-sm" value="1" color="primary">jos**********@gmail.com
+                            </mat-radio-button>
+                            <button class="btn w-36 btn-code text-primary font-montserrat" mat-raised-button>enviar EMAIL</button>
+                          </mat-card>
+                        </div>
+                        <div class="text-center">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Ingresar tu código</mat-label>
+                            <input maxlength="10" matInput placeholder="Ingresar tu código">
+                          </mat-form-field>
+                        </div>
+                        <div class="w-full">
+                          <p class="text-center w-full text-sm text-black flex ">
+                            Solicitar nuevo código
+                          </p>
+                        </div>
+                      </div>
+                      <div class="flex flex-row mt-4">
+                        <div class="mr-5 w-full">
+                          <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperPrevious>VOLVER</button>
+                        </div>
+                        <div class="w-full">
+                          <button class="btn h-12 w-full" mat-raised-button
+                                  color="primary" matStepperNext>SIGUIENTE</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup">
+                  <div style="min-height: 550px; display: flex; flex-direction: column;">
+                    <ng-template matStepLabel>Clave <br> de internet</ng-template>
+                    <div *ngIf="showSpinner" class="loader-container">
+                      <mat-spinner></mat-spinner>
+                    </div>
+                    <h4 class="text-3xl text-center my-3 pb-3">Crear Clave de Internet</h4>
+                    <form [formGroup]="thirdFormGroup" class="sm:w-2/3 w-full  lg:px-0 mx-auto">
+                      <div class=" text-left">
+                        <p class="text-left text-sm text-black flex items-center">
+                          <mat-icon matTooltip="Info about the action" class="text-yellow-500 mr-3 my-2">info</mat-icon>Nueva clave de internet de 6 digitos
+                        </p>
+                        <mat-form-field appearance="outline" class="w-full pass">
+                          <input class="block w-full p-4 text-lg rounded-sm ph-center" type="password" matInput disabled="true" placeholder="⬤ ⬤ ⬤ ⬤ ⬤ ⬤">
+                          <!-- type="password" -->
+                </mat-form-field>
+                <p class="text-left text-sm text-black flex items-center">
+                  Confirmar nueva clave de internet de 6 digitos
+                </p>
+                <app-password-field></app-password-field>
+                <mat-checkbox class="text-gray-100 text-sm" style="text-align: left" color="primary">Acepto <u>términos y condiciones</u></mat-checkbox>
+              </div>
+              <div class="flex flex-row mt-4">
+                <div class="mr-5 w-full">
+                  <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperPrevious>VOLVER</button>
+                </div>
+                <div class="w-full">
+                  <button (click)="showSuccessfulRegistration()" class="btn h-12 w-full" mat-raised-button
+                          color="primary" matStepperNext>CONFIRMAR</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <ng-container *ngIf="!hideSteppers">
+        <img class="pt-10 img" src="assets/img/check-Vector.svg" alt="image">
+        <h4 class="text-3xl text-center my-10 pb-3">Contraseña generada <br> con éxito</h4>
+        <p class="text-center">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+          consequat
+          duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+        <div class="mt-10">
+          <button routerLink="/login" class="btn h-12 w-full" mat-raised-button color="primary">INGRESAR</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
